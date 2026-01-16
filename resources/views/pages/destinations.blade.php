@@ -1,381 +1,261 @@
 @extends('layouts.default')
 @section('meta')
-    <title>Bali Best Place To join with us - The Swand</title>
-    <meta content="we are company that acomodate room booking, tour travel and also property management, visit bali instereted place" name="description">
-    <meta content="bali room booking, car rental bali, bali management property, ubud tour, bali tour" name="keywords">
+    <title>Bali Best Destinations - Bali Driver Activity</title>
+    <meta content="bali destinations, visit bali interesting place" name="description">
+    <meta content="bali good tour, car rental bali, ubud tour, bali tour" name="keywords">
 @endsection
 @section('content')
     
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Bali Destinations</h2>
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+      <div class="container position-relative">
+        <h1>Destinations</h1>
+        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <nav class="breadcrumbs">
           <ol>
-            <li><a href="/">Home</a></li>
-            <li>All Bali Destinations</li>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Destinations</li>
           </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Travel Destinations Section -->
+    <section id="travel-destinations" class="travel-destinations section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2>Uncover Captivating Travel Experiences</h2>
+            <p class="mb-5">From the bustling energy of cosmopolitan cities to the serene embrace of untouched wilderness, embark on incredible journeys to the planet's most enchanting destinations. We're here to help you craft memories that will last a lifetime.</p>
+          </div>
+        </div>
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="destination-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active">All Locales</li>
+            <li data-filter=".filter-tropical">Tropical</li>
+            <li data-filter=".filter-mountain">Alpine</li>
+            <li data-filter=".filter-urban">Cityscapes</li>
+            <li data-filter=".filter-historical">Heritage</li>
+            <li data-filter=".filter-coastal">Seaside</li>
+          </ul><!-- End Destination Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-coastal">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-2.webp" alt="Maldives" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag luxury">Elysian</span>
+                    <div class="destination-info">
+                      <h4>Maldives</h4>
+                      <p>A cluster of idyllic islands, boasting sapphire waters and charming overwater retreats.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 15 Escapes</span>
+                        <span class="starting-price">From $2,450</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-historical">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-4.webp" alt="Rome, Italy" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag cultural">Historic</span>
+                    <div class="destination-info">
+                      <h4>Rome, Italy</h4>
+                      <p>The timeless city, where ancient ruins meet breathtaking Renaissance artistry.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 18 Excursions</span>
+                        <span class="starting-price">From $1,320</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-mountain">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-6.webp" alt="Swiss Alps" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag adventure">Alpine</span>
+                    <div class="destination-info">
+                      <h4>Swiss Alps</h4>
+                      <p>Grandiose peaks and unspoiled mountain hamlets await your discovery.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 10 Treks</span>
+                        <span class="starting-price">From $1,980</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-tropical">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-8.webp" alt="Costa Rica" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag nature">Eco-Venture</span>
+                    <div class="destination-info">
+                      <h4>Costa Rica</h4>
+                      <p>Lush rainforests, abundant wildlife, and responsible eco-tourism experiences.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 14 Expeditions</span>
+                        <span class="starting-price">From $1,650</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-urban">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-10.webp" alt="Dubai, UAE" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag modern">Cosmopolitan</span>
+                    <div class="destination-info">
+                      <h4>Dubai, UAE</h4>
+                      <p>A dazzling skyline where futuristic visions meet authentic Arabian warmth.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 20 Journeys</span>
+                        <span class="starting-price">From $1,470</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-coastal">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-12.webp" alt="Amalfi Coast, Italy" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag romantic">Enchanting</span>
+                    <div class="destination-info">
+                      <h4>Amalfi Coast</h4>
+                      <p>Striking cliffs and picturesque villages perched above the cerulean Mediterranean.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 13 Getaways</span>
+                        <span class="starting-price">From $1,850</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-tropical">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-14.webp" alt="Thailand" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag popular">Vibrant</span>
+                    <div class="destination-info">
+                      <h4>Thailand</h4>
+                      <p>Gilded temples, pristine beaches, and bustling street markets await.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 22 Packages</span>
+                        <span class="starting-price">From $1,100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-mountain">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-16.webp" alt="Nepal Himalayas" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag trekking">Ascent</span>
+                    <div class="destination-info">
+                      <h4>Nepal Himalayas</h4>
+                      <p>Home to the world's highest peaks and ancient, serene Buddhist sanctuaries.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 8 Quests</span>
+                        <span class="starting-price">From $2,300</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-historical">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-18.webp" alt="Egypt Pyramids" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag ancient">Timeless</span>
+                    <div class="destination-info">
+                      <h4>Egypt</h4>
+                      <p>The eternal wonders of pharaohs and the majestic flow of the River Nile.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 16 Expeditions</span>
+                        <span class="starting-price">From $1,750</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-urban">
+              <a href="destination-details.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="assets/img/travel/destination-20.webp" alt="Singapore" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag family">Family-Friendly</span>
+                    <div class="destination-info">
+                      <h4>Singapore</h4>
+                      <p>A modern garden city, celebrated for its bold architecture and diverse culinary scene.</p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> 17 Adventures</span>
+                        <span class="starting-price">From $1,399</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+          </div><!-- End Destinations Container -->
+
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-10 mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="planning-assistance">
+              <div class="assistance-content">
+                <h3>Let Our Team Help Curate Your Perfect Expedition</h3>
+                <p>Unsure which destination aligns with your travel aspirations? Our seasoned travel advisors are poised to design a bespoke itinerary tailored just for you.</p>
+                <div class="assistance-actions">
+                  <a href="#" class="btn btn-primary">Receive Complimentary Consultation</a>
+                  <a href="#" class="btn btn-outline">Explore All Available Tours</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
-    </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Menu Section ======= -->
-    <section id="menu" class="menu">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <!-- <h2>Our Menu</h2> -->
-          <p>Best <span>Bali destinations place</span></p>
-        </div>
-
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-          <li class="nav-item ">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-ubud">
-              <h4>Ubud</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-south">
-              <h4>South Bali Destinations</h4>
-            </a><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-north">
-              <h4>North Bali Destinations</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-east">
-              <h4>East Bali Destinations</h4>
-            </a>
-          </li>
-          <!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-kintamani">
-              <h4>Kintamani Bali Destinations</h4>
-            </a>
-          </li>
-          <!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-west">
-              <h4>West Bali Destinations</h4>
-            </a>
-          </li>
-          <!-- End tab nav item -->
-
-        </ul>
-
-        <div class="tab-content chefs">
-       
-
-          <div class="tab-pane fade active show" id="menu-ubud">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'ubud')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                    <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                  </div>
-                  
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-          <div class="tab-pane fade active show" id="menu-south">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'south')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                  </div>
-                  <p class="price">
-                    <div >
-                      <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                    </div>
-                  </p>
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-          <div class="tab-pane fade active show" id="menu-north">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'north')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                  </div>
-                  <p class="price">
-                    <div >
-                      <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                    </div>
-                  </p>
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-          <div class="tab-pane fade active show" id="menu-east">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'east')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                  </div>
-                  <p class="price">
-                    <div >
-                      <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                    </div>
-                  </p>
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-          <div class="tab-pane fade active show" id="menu-kintamani">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'kintamani')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                  </div>
-                  <p class="price">
-                    <div >
-                      <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                    </div>
-                  </p>
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-          <div class="tab-pane fade active show" id="menu-west">
-            <div class="tab-header text-center">
-              <!-- <p>Menu</p> -->
-              <!-- <h3>Transport</h3> -->
-            </div>
-            <div class="row gy-3">
-            @foreach ($destinasi as $tr)
-            @if($tr->type == 'west')
-              <!-- Menu Item -->
-              <div class="col-lg-3 col-md-4 d-flex align-items-stretch" >
-                <div class="chef-member">
-                  <div class="member-img">
-                    @php $gmbr = explode(";",$tr->foto) ; @endphp
-                    <img src="assets/img/destinasi/{{ $gmbr[0] }}" class="img-fluid" alt="">
-                    <div class="social">
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>{{ $tr->name }}</h4>
-                    <!-- <span>Cook</span> -->
-                    <p>{!! cutText($tr->deskripsi, 300, 3) !!}</p>
-                    <a href="/destinations/{{$tr->slug}}" class="btn-book-a-table">Detail</a>
-                  </div>
-                </div>
-              </div><!-- End Chefs Member -->
-            @endif
-            @endforeach
-            </div>
-          </div><!-- End Breakfast Menu Content -->
-
-          
-
-          
-
-        </div>
-
-      </div>
-    </section>
-    
-    <!-- End Menu Section -->
-
-    <!-- Button trigger modal -->
-
-
-    
-
-
-    
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Contact</h2>
-          <p>Need Help? <span>Contact Us</span></p>
-        </div>
-
-        <div class="mb-3">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.1957654155755!2d115.17408542285924!3d-8.6168148017417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd239e1f895d5b3%3A0xad8aa8fe6cf83d1d!2sPerumahan%20Pesona%20gaji%20Dalung%20Block%204!5e0!3m2!1sid!2sid!4v1710597857163!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <!-- End Google Maps -->
-
-        <div class="row gy-4">
-
-          <!-- <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-map flex-shrink-0"></i>
-              <div>
-                <h3>Our Office Address</h3>
-                <p>AJalan Genta Sari Blok IV Gang Amerta Sari No 7 <br>
-              Dalung Badung Bali- ID 80361</p>
-              </div>
-            </div>
-          </div> -->
-          <!-- End Info Item -->
-
-          <!-- <div class="col-md-6">
-            <div class="info-item d-flex align-items-center">
-              <i class="icon bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>the.swand26@gmail.com</p>
-              </div>
-            </div>
-          </div> -->
-          <!-- End Info Item -->
-
-          <!-- <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+62 8234 006 4488</p>
-              </div>
-            </div>
-          </div> -->
-          <!-- End Info Item -->
-
-          <!-- <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-share flex-shrink-0"></i>
-              <div>
-                <h3>Opening Hours</h3>
-                <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                  <strong>Sunday:</strong> Closed
-                </div>
-              </div>
-            </div>
-          </div> -->
-          <!-- End Info Item -->
-
-        </div>
-
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
-          <div class="row">
-            <div class="col-xl-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-            </div>
-            <div class="col-xl-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-          </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form><!--End Contact Form -->
-
-      </div>
-    </section><!-- End Contact Section -->
+    </section><!-- /Travel Destinations Section -->
 
     
 

@@ -40,28 +40,32 @@
             <textarea class="form-control" id="product_des" name="product_des" >{{ $productsDetail->product_des ?? '' }}</textarea>
         </div>
         <div class="form-group">
-            <label>Parent Artikel</label>
-            
-                <label class="checkbox-inline">
-                 
-                @if(isset($productsDetail))
-                  @php $fasi = explode(";",$productsDetail->parent_type) ; @endphp
-                    @foreach($activities as $desti)
-                      @if(in_array($desti->code, $fasi))
-                        <input type="checkbox" id="parent_type" name="parent_type[]" value="{{ $desti->code }}" checked />{{$desti->name}} - {{$desti->lang}}
-                      @else
-                        <input type="checkbox" id="parent_type" name="parent_type[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
-                      @endif
-
-                    @endforeach
-                @else
-                    @foreach($activities as $desti)
-                        <input type="checkbox" id="parent_type" name="parent_type[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
-                    @endforeach
-                @endif
-               
-                </label>
-
+            <label>Aktivity</label>
+            <div class="row">
+          @if(isset($productsDetail))
+            @php $fasi = explode(";",$productsDetail->parent_type); @endphp
+              @foreach($activities as $desti)
+                <div class="col-md-6">
+            <label class="checkbox-inline">
+              @if(in_array($desti->code, $fasi))
+                <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" checked />
+              @else
+                <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />
+              @endif
+              {{$desti->name}} - {{$desti->lang}}
+            </label>
+                </div>
+              @endforeach
+          @else
+              @foreach($activities as $desti)
+                <div class="col-md-6">
+            <label class="checkbox-inline">
+              <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
+            </label>
+                </div>
+              @endforeach
+          @endif
+            </div>
         </div>
         <div class="form-group">
             <div class="needsclick dropzone" id="document-dropzone"></div>
@@ -92,7 +96,7 @@
     Dropzone.options.documentDropzone = {
       url: '{{ route('products.storeMedia') }}',
       maxFilesize: 10, // MB
-      acceptedFiles: '.png, .jpg',
+      acceptedFiles: '.png, .jpg, .jpeg, .webp',
       addRemoveLinks: true,
       headers: {
         'X-CSRF-TOKEN': "{{ csrf_token() }}"

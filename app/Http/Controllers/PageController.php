@@ -163,7 +163,8 @@ class PageController extends Controller
     }
     public function products(){
         $products = DB::table('products')->get();
-        return view('admin.pages.products', ['products' => $products]);
+        $activities = DB::table('activities')->get();
+        return view('admin.pages.products', ['products' => $products, 'activities' => $activities]);
     }
     public function productsAdd(){
 

@@ -15,7 +15,7 @@
               <tr>
                 <th class="text-center">Code</th>
                 <th>Name</th>
-                <th>Type</th>
+                <th>Aktivity</th>
                 <th>Price</th>
                 <th>Desc</th>
                 <th class="text-center">Action</th>
@@ -26,7 +26,14 @@
               <tr>
                 <td>{{$tur->product_code}}</td>
                 <td>{{$tur->product_name}}</td>
-                <td>{{$tur->parent_type}}</td>
+                <td>
+                  @foreach ($activities as $activity)
+                  @php $parentTypes = explode(';', $tur->parent_type); @endphp
+                    @if (in_array($activity->code, $parentTypes))
+                      {{ $activity->name }}<br/>
+                    @endif
+                  @endforeach
+                </td>
                 <td>{{$tur->price}}</td>
                 <td>{!! substr($tur->product_des, 0, 60) !!}</td>
                 <td>

@@ -83,17 +83,13 @@ class bookingController extends Controller
     public function home(){
 
         $defaultLocale = config('app.locale');
-        $kamar = Booking::join('room_fotos', 'room_fotos.code', 'bookings.code')
-                        ->where('bookings.lang', $defaultLocale)
-                        ->select('bookings.*', 'room_fotos.foto')
-                        ->get();
         $date = Carbon::now()->format('Y-m-d');
         $fasilitas = Facility::all();
-        $rate = DB::table('rates')->where('tgl', $date)->get();
         $transport = Transport::where('transports.lang', $defaultLocale)->get();
         $detinasi = Destination::where('destinations.lang', $defaultLocale)
                         ->join('destination_fotos', 'destination_fotos.code', 'destinations.code')
                         ->select('destinations.*', 'destination_fotos.foto')
+                        ->take(3)
                         ->get();
         $tur = TourPackage::join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
                         ->where('tour_packages.lang', $defaultLocale)
@@ -102,11 +98,11 @@ class bookingController extends Controller
         $paket = Package::where('lang', $defaultLocale)->get();
         $artikel = Artikel::where('lang', $defaultLocale)->get();
         $galeri = Gallery::where('lang', $defaultLocale)->take(3)->get();
-
+        $product = DB::table('products')->get();
+        $activities = DB::table('activities')->where('lang', $defaultLocale)->get();
         // var_dump($kamar[0]->foto);
 
         return view('pages.home',[
-            'kamar' => $kamar, 
             'transport' => $transport,
             'destination' => $detinasi,
             'tour' => $tur,
@@ -114,7 +110,8 @@ class bookingController extends Controller
             'artikel' => $artikel,
             'galeri'  => $galeri,
             'fasilitas' => $fasilitas,
-            'rate' => $rate,
+            'product' => $product,
+            'activities' => $activities,
             ] );
     }
 
