@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('destinasi', ['as' => 'pages.destinasi', 'uses' => 'App\Http\Controllers\PageController@destinasi']);
     // Route::get('activity', ['as' => 'pages.activity', 'uses' => 'App\Http\Controllers\PageController@activity']);
     Route::get('activity/{slug}', [App\Http\Controllers\PageController::class, 'activity'])->name('pages.activity');
-    Route::get('products', ['as' => 'pages.products', 'uses' => 'App\Http\Controllers\PageController@products']);
+    Route::get('products/{slug}', ['as' => 'pages.products', 'uses' => 'App\Http\Controllers\PageController@products']);
     //============room
     Route::get('room-add', ['as' => 'pages.room_add', 'uses' => 'App\Http\Controllers\PageController@roomAdd']);
     Route::post('room/media', [App\Http\Controllers\backendController::class, 'storeMedia'])->name('room.storeMedia');

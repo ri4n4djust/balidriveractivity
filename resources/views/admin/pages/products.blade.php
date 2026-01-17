@@ -9,6 +9,30 @@
         <a href="/products-add" class="btn btn-fill btn-primary">Add</a>
       </div>
       <div class="card-body">
+        <script>
+            function submitForm() {
+                document.getElementById('aktivitySearch').submit();
+            }
+        </script>
+        <form id="productsSearch" method="GET" action="{{ route('pages.products', 'cari') }}" class="form-inline">
+          <div class="form-group">
+            <input type="text" name="q" class="form-control" placeholder="Search by code, name, or area" value="{{ request('q') }}">
+            <button type="submit" class="btn btn-primary ml-2">Search</button>
+            <a href="{{ route('pages.products', 'all') }}" class="btn btn-secondary ml-2">Clear</a>
+          </div>
+        
+          <div class="form-group">
+            <label for="perPage">Per Page:</label>
+            <select name="perPage" id="perPage" class="form-control" onchange="this.form.submit()">
+              <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
+              <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25</option>
+              <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50</option>
+              <option value="100" {{ request('perPage') == 100 ? 'selected' : '' }}>100</option>
+            </select>
+        </form>
+        </div>
+      </div>
+      <div class="card-body">
         <div class="table-responsive">
           <table class="table tablesorter " id="">
             <thead class=" text-primary">

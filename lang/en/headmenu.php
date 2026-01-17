@@ -6,14 +6,15 @@ return [
     'service' => 'Services',
     'event' => 'Events',
     'driver' => 'Driver',
-    'galleri' => 'Gallery',
+    'gallery' => 'Gallery',
     'contact' => 'Contact Us',
     'partnership' => 'Partnership',
     'booking' => 'Rooms Booking',
     'tour_package' => 'Tour Packages',
+    'tour_activity' => 'Tour Activities',
     //============
-    'welcome_title' => 'The best hospitality Company in Bali',
-    'welcome_desc' => 'We managed Property And Also Trip in Bali, We manage all types of properties, from luxury villas, unique vacation homes, guesthouses, ocean-view resorts, modern apartments, ',
+    'welcome_title' => 'Discover your best holliday experience in Bali',
+    'welcome_desc' => 'We offer the best tour and travel experience in Bali, Visit and explore the beauty of Bali with our professional service ',
     //=========== about us
     'about_us' => 'About Us',
     'about_des' => 'About us description',

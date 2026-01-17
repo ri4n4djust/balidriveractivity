@@ -6,14 +6,15 @@ return [
     'service' => 'Kami Melayani',
     'event' => 'Kegiatan',
     'driver' => 'Sopir',
-    'galleri' => 'Galeri',
+    'gallery' => 'Galeri',
     'contact' => 'Kontak Kami',
     'partnership' => 'Kemitraan',
     'booking' => 'Sewa Kamar',
     'tour_package' => 'Paket Tur',
+    'tour_activity' => 'Tur Aktivitas',
     //============
-    'welcome_title' => 'Perusahaan Hospitality Terbaik di Bali',
-    'welcome_desc' => 'Kami me managed property dan perjalan anda di Bali, Kami Me manage Semua Jenis Property, seperti luxury villas, unique vacation homes, guesthouses, ocean-view resorts, modern apartments, ',
+    'welcome_title' => 'Jelajahi pengalaman liburan terbaik Anda di Bali',
+    'welcome_desc' => 'Kami menawarkan pengalaman tur dan perjalanan terbaik di Bali, Kunjungi dan jelajahi keindahan Bali dengan layanan profesional kami ',
      //=========== about us
      'about_us' => 'Tentang Kami',
      'about_des' => 'Penjelasan tentang kami',

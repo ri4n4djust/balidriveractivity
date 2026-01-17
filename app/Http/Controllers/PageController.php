@@ -161,8 +161,23 @@ class PageController extends Controller
         // $defaultLocale = config('app.locale');
         return view('admin.pages.activity_add');
     }
-    public function products(){
-        $products = DB::table('products')->get();
+    public function products(Request $request, $slug){
+        $search = $request->query('q');
+        if($search == ''){
+            $cr = 'all';
+        }
+        $perPage = $request->query('perPage', 12); // Default to 12 if not provided
+
+        if ($search != null && $search != 'all') {
+            $products = DB::table('products')->where('product_name', 'like', '%' . $search . '%')->orderBy('id', 'desc')->paginate($perPage);
+            
+        } elseif ($slug == 'all') {
+            $products = DB::table('products')->orderBy('id', 'desc')->paginate($perPage);
+        } elseif ($cr == 'all') {
+            $products = DB::table('products')->orderBy('id', 'desc')->paginate($perPage);
+        } else {
+            $products = [];
+        }
         $activities = DB::table('activities')->get();
         return view('admin.pages.products', ['products' => $products, 'activities' => $activities]);
     }

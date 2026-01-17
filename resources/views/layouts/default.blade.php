@@ -16,7 +16,25 @@
   gtag('js', new Date());
   gtag('config', 'G-YGQ91MNY00');
 </script>
-
+<?php  
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
+        $url = "https://";   
+    }else{  
+        $url = "http://";   
+    }
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
+    // Append the requested resource location to the URL   
+    $urla = $_SERVER['REQUEST_URI'];    
+    $data = explode("/", $urla) ;
+    if(count($data) > 2 ){
+      $tabel = $data[1];
+      $slug = $data[2];
+    }else{
+      $tabel = '';
+      $slug = '';
+    };
+?>
 <body>
 
   <!-- ======= Header ======= -->
@@ -31,7 +49,9 @@
   @elseif (Route::is('service'))
     @include('includes.headmenudetail', ['banner' => '3.webp' ?? null, 'judul' => 'Our Services' ?? null])
   @elseif (Route::is('destinations') || Route::is('destination-detail'))
-    @include('includes.headmenudetail', ['banner' => '4.webp' ?? null, 'judul' => 'Our Projects' ?? null])
+    @include('includes.headmenudetail', ['banner' => '4.webp' ?? null, 'judul' => 'Bali Destinations' ?? null])
+  @elseif (Route::is('activities') || Route::is('activity-detail'))
+    @include('includes.headmenudetail', ['banner' => 'ubud.webp' ?? null, 'judul' => 'Bali Activities' ?? null])
   @elseif (Route::is('tour_packages') || Route::is('tour_package.detail'))
     @include('includes.headmenudetail', ['banner' => '4.webp' ?? null, 'judul' => 'Project Detail' ?? null])
   @elseif (Route::is('contact'))

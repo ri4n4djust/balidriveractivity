@@ -465,7 +465,7 @@ class backendController extends Controller
                 //     'success' => true,
                 //     'message' => 'Post Berhasil Diupdate!',
                 // ], 200);
-                return redirect()->route('pages.products');
+                return redirect()->route('pages.products', 'all');
             } else {
                 DB::rollback();
                 return response()->json([

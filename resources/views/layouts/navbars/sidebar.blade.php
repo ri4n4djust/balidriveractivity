@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li @if ($pageSlug == 'products') class="active " @endif>
-                <a href="{{ route('pages.products') }}">
+                <a href="{{ route('pages.products', 'all') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Products') }}</p>
                 </a>

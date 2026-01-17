@@ -126,11 +126,11 @@ class bookingController extends Controller
     public function destination()
     {
         $defaultLocale = config('app.locale');
-        $destinasi = DB::table('destinations')->where('lang', $defaultLocale)
+        $destination = DB::table('destinations')->where('lang', $defaultLocale)
                         ->join('destination_fotos', 'destination_fotos.code', 'destinations.code')
                         ->select('destinations.*', 'destination_fotos.foto')
                         ->get();
-        return view('pages.destinations', compact('destinasi'));
+        return view('pages.destinations', compact('destination'));
     }
 
     public function destinationDetail($slug){
