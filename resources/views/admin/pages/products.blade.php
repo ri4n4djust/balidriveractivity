@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Products'), 'pageSlug' => 'products'])
+@extends('layouts.app', ['page' => __('Mix Tours'), 'pageSlug' => 'mix-tours'])
 
 @section('content')
 <div class="row">

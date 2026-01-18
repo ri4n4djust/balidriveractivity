@@ -42,29 +42,29 @@
         <div class="form-group">
             <label>Aktivity</label>
             <div class="row">
-          @if(isset($productsDetail))
-            @php $fasi = explode(";",$productsDetail->parent_type); @endphp
-              @foreach($activities as $desti)
-                <div class="col-md-6">
-            <label class="checkbox-inline">
-              @if(in_array($desti->code, $fasi))
-                <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" checked />
-              @else
-                <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />
-              @endif
-              {{$desti->name}} - {{$desti->lang}}
-            </label>
-                </div>
-              @endforeach
-          @else
-              @foreach($activities as $desti)
-                <div class="col-md-6">
-            <label class="checkbox-inline">
-              <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
-            </label>
-                </div>
-              @endforeach
-          @endif
+            @if(isset($productsDetail))
+              @php $fasi = explode(";",$productsDetail->parent_type); @endphp
+                @foreach($activities as $desti)
+                  <div class="col-md-6">
+                  <label class="checkbox-inline">
+                    @if(in_array($desti->code, $fasi))
+                      <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" checked />
+                    @else
+                      <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />
+                    @endif
+                    {{$desti->name}} - {{$desti->lang}}
+                  </label>
+                  </div>
+                @endforeach
+            @else
+                @foreach($activities as $desti)
+                  <div class="col-md-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="parent_type[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
+              </label>
+                  </div>
+                @endforeach
+            @endif
             </div>
         </div>
         <div class="form-group">

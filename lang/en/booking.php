@@ -24,4 +24,5 @@ return [
     'number_of_people' => 'Number of People',
     'type_of_tour' => 'Type of Tour',
     'special_requests' => 'Special Requests',
+    'submit' => 'Find Your Perfect Trip',
 ];

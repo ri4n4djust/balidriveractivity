@@ -31,10 +31,10 @@
                     <p>{{ __('Aktifitas') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'products') class="active " @endif>
+            <li @if ($pageSlug == 'Mix Tours') class="active " @endif>
                 <a href="{{ route('pages.products', 'all') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
-                    <p>{{ __('Products') }}</p>
+                    <p>{{ __('Mix Tours') }}</p>
                 </a>
             </li>
             <!-- <li>

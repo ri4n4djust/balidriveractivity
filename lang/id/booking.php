@@ -24,4 +24,5 @@ return [
     'number_of_people' => 'Jumlah Orang',
     'type_of_tour' => 'Jenis Tur',
     'special_requests' => 'Permintaan Khusus',
+    'submit' => 'Temukan Perjalanan Sempurna Anda',
 ];

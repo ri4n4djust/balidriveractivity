@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Str;
 use Validator;
 
 class backendController extends Controller
@@ -156,6 +157,7 @@ class backendController extends Controller
                     $gmbr = $gmbr.$ft.";" ;
                 }
                 $desti = implode(';', $data['destination']);
+                $acti = implode(';', $data['activity']);
                 $project = DB::table('tour_packages')->upsert([
                     'id' => $data['id'],
                     'code' => $data['code'],
@@ -166,6 +168,7 @@ class backendController extends Controller
                     'itinerary' => $data['itinerary'],
                     'price' => $data['price'],
                     'destination' => $desti.';',
+                    'activity' => $acti.';',
                     'lang' => $data['lang'],
                     'payment' => $data['payment'],
                     'note' => $data['note'],
@@ -216,8 +219,8 @@ class backendController extends Controller
                     ->first();
         // return redirect()->route('pages.room_add');
         $destinasi = DB::table('destinations')->get();
-
-        return view('admin.pages.tour_add', compact('tourDetail', 'destinasi'));
+        $activities = DB::table('activities')->get();
+        return view('admin.pages.tour_add', compact('tourDetail', 'destinasi', 'activities'));
 
     }
 
@@ -451,6 +454,7 @@ class backendController extends Controller
                     'product_code' => $data['product_code'],
                     'product_des' => $data['product_des'],
                     'product_name' => $data['product_name'],
+                    'slug' => \Illuminate\Support\Str::slug($data['product_name']),
                     'parent_type' => $parent.';',
                     'product_foto' => $gmbr,
                     'price' => $data['price'],

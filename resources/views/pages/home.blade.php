@@ -52,7 +52,7 @@
 
           <!-- Section Title -->
           <div class="container section-title" data-aos="fade-up">
-            <h2>Featured Tours</h2>
+            <h2>Mix Tours</h2>
             <div><span>Check Our</span> <span class="description-title">Custom Tour and Activity</span></div>
           </div><!-- End Section Title -->
 

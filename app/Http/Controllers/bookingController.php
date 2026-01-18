@@ -30,13 +30,35 @@ class bookingController extends Controller
         return view('pages.transport',['transport' => $transport] );
     }
 
-    public function tour(){
+    public function tour(Request $request){
+        $perPage = $request->query('per_page', 6);
+        $products = DB::table('products')->orderBy('id', 'desc')->paginate($perPage);
         $defaultLocale = config('app.locale');
         $tur = TourPackage::join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
                     ->where('tour_packages.lang', $defaultLocale)
                     ->select('tour_packages.*', 'tour_fotos.foto')
                     ->get();
-        return view('pages.tour',['tour' => $tur] );
+        $activities = DB::table('activities')->where('lang', $defaultLocale)
+                    ->join('activity_fotos', 'activity_fotos.code', 'activities.code')
+                    ->select('activities.*', 'activity_fotos.foto')
+                    ->get();
+        // $products = DB::table('products')->orderBy('id', 'desc')->get();
+        return view('pages.tour',['tour' => $tur, 'activities' => $activities, 'product' => $products] );
+    }
+    public function mix(Request $request){
+        $perPage = $request->query('per_page', 6);
+        $products = DB::table('products')->orderBy('id', 'desc')->paginate($perPage);
+        $defaultLocale = config('app.locale');
+        $tur = TourPackage::join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
+                    ->where('tour_packages.lang', $defaultLocale)
+                    ->select('tour_packages.*', 'tour_fotos.foto')
+                    ->get();
+        $activities = DB::table('activities')->where('lang', $defaultLocale)
+                    ->join('activity_fotos', 'activity_fotos.code', 'activities.code')
+                    ->select('activities.*', 'activity_fotos.foto')
+                    ->get();
+        // $products = DB::table('products')->orderBy('id', 'desc')->get();
+        return view('pages.mix',['tour' => $tur, 'activities' => $activities, 'product' => $products] );
     }
 
     public function hotel(){
@@ -94,11 +116,12 @@ class bookingController extends Controller
         $tur = TourPackage::join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
                         ->where('tour_packages.lang', $defaultLocale)
                         ->select('tour_packages.*', 'tour_fotos.foto')
+                        ->take(3)
                         ->get();
-        $paket = Package::where('lang', $defaultLocale)->get();
+        $paket = Package::where('lang', $defaultLocale)->take(3)->get();
         $artikel = Artikel::where('lang', $defaultLocale)->get();
         $galeri = Gallery::where('lang', $defaultLocale)->take(3)->get();
-        $product = DB::table('products')->get();
+        $product = DB::table('products')->orderBy('id', 'desc')->take(4)->get();
         $activities = DB::table('activities')->where('lang', $defaultLocale)->get();
         // var_dump($kamar[0]->foto);
 
@@ -182,6 +205,31 @@ class bookingController extends Controller
             'tourDetail' => $tur,
             'destinasi' => $destinasi,
             'activities' => $activity
+            ] );
+    }
+
+    public function mixDetail($slug){
+
+        $defaultLocale = config('app.locale');
+        $tur = DB::table('tour_packages')->where('tour_packages.slug', $slug)
+                        ->join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
+                        ->select('tour_packages.*', 'tour_fotos.foto')
+                        ->get();
+        $destinasi = DB::table('destinations')->join('destination_fotos', 'destination_fotos.code', 'destinations.code')
+                        ->where('lang', $defaultLocale)
+                        ->select('destinations.*', 'destination_fotos.foto')
+                        ->get();
+        $activity = DB::table('activities')->where('lang', $defaultLocale)
+                        ->join('activity_fotos', 'activity_fotos.code', 'activities.code')
+                        ->select('activities.*', 'activity_fotos.foto')
+                        ->get();
+                        // dd($tur);
+        $product = DB::table('products')->where('slug', $slug)->get();
+        return view('pages.mix-detail',[
+            'tourDetail' => $tur,
+            'destinasi' => $destinasi,
+            'activities' => $activity,
+            'mixDetail' => $product
             ] );
     }
 

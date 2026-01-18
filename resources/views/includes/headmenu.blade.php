@@ -63,18 +63,19 @@
                   <label for="destination">{{ __('booking.destination') }}</label>
                   <select name="destination" id="destination" class="form-select" required="">
                     <option value="">Choose your destination</option>
-                    <option value="europe">Europe</option>
-                    <option value="asia">Asia</option>
-                    <option value="america">America</option>
-                    <option value="africa">Africa</option>
-                    <option value="oceania">Oceania</option>
+                    <option value="ubud">Ubud</option>
+                    <option value="south">South Bali</option>
+                    <option value="north">North Bali</option>
+                    <option value="east">East Bali</option>
+                    <option value="kintamani">Kintamani</option>
+                    <option value="west">West Bali</option>
                   </select>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group mb-3">
-                      <label for="checkin">Departure Date</label>
+                      <label for="checkin">Date</label>
                       <input type="date" name="checkin" id="checkin" class="form-control" required="">
                     </div>
                   </div>
@@ -100,15 +101,15 @@
                   <label for="tour-type">{{ __('booking.type_of_tour') }}</label>
                   <select name="tour_type" id="tour-type" class="form-select" required="">
                     <option value="">Select tour type</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="cultural">Cultural</option>
-                    <option value="relaxation">Relaxation</option>
-                    <option value="family">Family</option>
-                    <option value="luxury">Luxury</option>
+                    <option value="adventure">Activity</option>
+                    <option value="cultural">Mix</option>
+                    <option value="relaxation">Land</option>
+                    <option value="family">Air</option>
+                    <option value="luxury">Water</option>
                   </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Find Your Perfect Trip</button>
+                <button type="submit" class="btn btn-primary w-100">{{ __('booking.submit') }}</button>
               </form>
             </div>
           </div>

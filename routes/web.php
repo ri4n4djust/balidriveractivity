@@ -43,6 +43,8 @@ if (file_exists(app_path('Http/Controllers/LocalizationController.php')))
     Route::get('/service', [App\Http\Controllers\bookingController::class , 'service'])->name('service');
     Route::get('/tour_packages/{slug}', [App\Http\Controllers\bookingController::class , 'tourDetail'])->name('tour_packages.detail');
     // Route::get('/hotels', [App\Http\Controllers\bookingController::class , 'hotel']);
+    Route::get('/mix-packages', [App\Http\Controllers\bookingController::class , 'mix'])->name('mix_packages');
+    Route::get('/mix-detail/{slug}', [App\Http\Controllers\bookingController::class , 'mixDetail'])->name('mix_packages.detail');
     // Route::get('/bookings/{slug}', [App\Http\Controllers\bookingController::class , 'hotelDetail']);
     Route::get('/destinations', [App\Http\Controllers\bookingController::class , 'destination'])->name('destinations');
     Route::get('/destinations/{slug}', [App\Http\Controllers\bookingController::class , 'destinationDetail'])->name('destinations.detail');

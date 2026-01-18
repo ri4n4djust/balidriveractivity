@@ -65,27 +65,62 @@
         </div>
         <div class="form-group">
             <label>Destination  </label>
-            
-                <label class="checkbox-inline">
+              <div class="row">
                  
                 @if(isset($tourDetail))
                   @php $fasi = explode(";",$tourDetail->destination) ; @endphp
                     @foreach($destinasi as $desti)
+                    <div class="col-md-6">
                       @if(in_array($desti->id, $fasi))
-                        <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" checked />{{$desti->name}} - {{$desti->lang}}
-                      @else
-                        <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" />{{$desti->name}} - {{$desti->lang}}
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" checked />
+                        @else
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" />
+                        </label>
                       @endif
-
+                      {{$desti->name}} - {{$desti->lang}}
+                    </div>
                     @endforeach
                 @else
                     @foreach($destinasi as $desti)
+                    <div class="col-md-6">
+                      <label class="checkbox-inline">
                         <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" />{{$desti->name}} - {{$desti->lang}}
+                      </label>
+                    </div>
                     @endforeach
                 @endif
                
                 </label>
-
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Aktivity</label>
+            <div class="row">
+            @if(isset($activities))
+              @php $fasi = explode(";",$tourDetail->activity); @endphp
+                @foreach($activities as $act)
+                  <div class="col-md-6">
+                    <label class="checkbox-inline">
+                      @if(in_array($act->code, $fasi))
+                        <input type="checkbox" name="activity[]" value="{{ $act->code }}" checked />
+                      @else
+                        <input type="checkbox" name="activity[]" value="{{ $act->code }}" />
+                      @endif
+                      {{$act->name}} - {{$act->lang}}
+                    </label>
+                  </div>
+                @endforeach
+            @else
+                @foreach($activities as $act)
+                  <div class="col-md-6">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" name="activity[]" value="{{ $act->code }}" />{{$act->name}} - {{$act->lang}}
+                    </label>
+                  </div>
+                @endforeach
+            @endif
+            </div>
         </div>
         <div class="form-group">
             <div class="needsclick dropzone" id="document-dropzone"></div>
