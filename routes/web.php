@@ -31,6 +31,7 @@ use Spatie\Sitemap\Tags\Url;
 if (file_exists(app_path('Http/Controllers/LocalizationController.php')))
 {
     Route::get('/lang', [App\Http\Controllers\LocalizationController::class , 'lang'])->name('lang');
+    Route::get('/currency', [App\Http\Controllers\LocalizationController::class , 'currency'])->name('currency');
     // Route::get('/', function () { return view('pages.home'); });
     Route::get('/', [App\Http\Controllers\bookingController::class , 'home'])->name('home');
     Route::get('/about-us', function () { return view('pages.about'); });

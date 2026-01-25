@@ -42,6 +42,7 @@
                 <th>Aktivity</th>
                 <th>Price</th>
                 <th>Desc</th>
+                <th>Lang</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
@@ -51,7 +52,7 @@
                 <td>{{$tur->product_code}}</td>
                 <td>{{$tur->product_name}}</td>
                 <td>
-                  @foreach ($activities as $activity)
+                  @foreach ($activities->where('lang', $tur->lang) as $activity)
                   @php $parentTypes = explode(';', $tur->parent_type); @endphp
                     @if (in_array($activity->code, $parentTypes))
                       {{ $activity->name }}<br/>
@@ -60,6 +61,7 @@
                 </td>
                 <td>{{$tur->price}}</td>
                 <td>{!! substr($tur->product_des, 0, 60) !!}</td>
+                <td>{{$tur->lang}}</td>
                 <td>
                   <a href="{{ route('products.edit',['product_code' => $tur->id]) }}"><i class="tim-icons icon-pencil"></i></a>
                   <i class="tim-icons icon-trash-simple"></i>

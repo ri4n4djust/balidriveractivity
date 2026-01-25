@@ -179,11 +179,13 @@ class PageController extends Controller
             $products = [];
         }
         $activities = DB::table('activities')->get();
-        return view('admin.pages.products', ['products' => $products, 'activities' => $activities]);
+        $destinasi = DB::table('destinations')->get();
+        return view('admin.pages.products', ['products' => $products, 'activities' => $activities, 'destinasi' => $destinasi]);
     }
     public function productsAdd(){
 
         $activities = DB::table('activities')->get();
-        return view('admin.pages.products_add', ['activities' => $activities]);
+        $destinasi = DB::table('destinations')->get();
+        return view('admin.pages.products_add', ['activities' => $activities, 'destinasi' => $destinasi]);
     }
 }

@@ -15,6 +15,7 @@ use App\Models\Rate;
 use App\Models\Review;
 use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -32,7 +33,8 @@ class bookingController extends Controller
 
     public function tour(Request $request){
         $perPage = $request->query('per_page', 6);
-        $products = DB::table('products')->orderBy('id', 'desc')->paginate($perPage);
+        $defaultLocale = config('app.locale');
+        $products = DB::table('products')->where('lang', $defaultLocale)->orderBy('id', 'desc')->paginate($perPage);
         $defaultLocale = config('app.locale');
         $tur = TourPackage::join('tour_fotos', 'tour_fotos.code', 'tour_packages.code')
                     ->where('tour_packages.lang', $defaultLocale)
@@ -290,12 +292,12 @@ class bookingController extends Controller
         
     }
 
-    public function exchange(){
+    public function exchange($mata){
 
         $response = Http::get('https://v6.exchangerate-api.com/v6/bcb99ccd6a1020a3868d3632/latest/USD');
         $posts = $response->json();
-        return response()->json($posts);
-
+        Session::put('currency_rate', $posts['conversion_rates'][$mata]);
+        // return redirect()->back();
     }
 
     public function rate(Request $request){

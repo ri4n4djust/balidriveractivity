@@ -150,7 +150,10 @@ class backendController extends Controller
             $exception = DB::transaction(function() use ($request){ 
             
                 $data = $request->all();
-            
+                $data['document'] = $data['document'] ?? [];
+                $data['parent_type'] = $data['parent_type'] ?? [];
+                $data['destination'] = $data['destination'] ?? [];
+
                 $gmbr = "";
                 $foto = $data['document'];
                 foreach($foto as $ft){
@@ -250,6 +253,19 @@ class backendController extends Controller
             $exception = DB::transaction(function() use ($request){ 
             
                 $data = $request->all();
+                $data['id'] = $data['id'] ?? '';
+                $data['code'] = $data['code'] ?? '';
+                $data['deskripsi'] = $data['deskripsi'] ?? '';
+                $data['name'] = $data['name'] ?? '';
+                $data['slug'] = $data['slug'] ?? '';
+                $data['type'] = $data['type'] ?? '';
+                $data['lang'] = $data['lang'] ?? '';
+                $data['meta_keyword'] = $data['meta_keyword'] ?? '';
+                $data['meta_description'] = $data['meta_description'] ?? '';
+                $data['document'] = $data['document'] ?? [];
+                $data['parent_type'] = $data['parent_type'] ?? [];
+                $data['destination'] = $data['destination'] ?? [];
+                $data['price'] = $data['price'] ?? 0;
             
                 $gmbr = "";
                 $foto = $data['document'];
@@ -347,7 +363,10 @@ class backendController extends Controller
             $exception = DB::transaction(function() use ($request){ 
             
                 $data = $request->all();
-            
+                $data['document'] = $data['document'] ?? [];
+                $data['parent_type'] = $data['parent_type'] ?? [];
+                $data['destination'] = $data['destination'] ?? [];
+
                 $gmbr = "";
                 $foto = $data['document'];
                 foreach($foto as $ft){
@@ -442,20 +461,32 @@ class backendController extends Controller
                 
             
                 $data = $request->all();
-            
+                $data['document'] = $data['document'] ?? [];
+                $data['parent_type'] = $data['parent_type'] ?? [];
+                $data['destination'] = $data['destination'] ?? [];
+                $data['product_included'] = $data['product_included'] ?? [];
+                $data['product_excluded'] = $data['product_excluded'] ?? [];
+
                 $gmbr = "";
                 $foto = $data['document'];
                 foreach($foto as $ft){
                     $gmbr = $gmbr.$ft.";" ;
                 }
                 $parent = implode(';', $data['parent_type']);
+                $desti = implode(';', $data['destination']);
                 $project = DB::table('products')->upsert([
                     'id' => $data['id'],
                     'product_code' => $data['product_code'],
                     'product_des' => $data['product_des'],
+                    'product_included' => $data['product_included'],
+                    'product_excluded' => $data['product_excluded'],
                     'product_name' => $data['product_name'],
                     'slug' => \Illuminate\Support\Str::slug($data['product_name']),
                     'parent_type' => $parent.';',
+                    'dst_type' => $desti.';',
+                    'lang' => $data['lang'],
+                    'meta_keyword' => $data['meta_keyword'],
+                    'meta_description' => $data['meta_description'],
                     'product_foto' => $gmbr,
                     'price' => $data['price'],
                     'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -497,8 +528,9 @@ class backendController extends Controller
         // return redirect()->route('pages.room_add');
         $productsDetail = DB::table('products')->where('id', $code)->first();
 
-        $activities = DB::table('activities')->get();
-        return view('admin.pages.products_add', compact('productsDetail', 'activities'));
+        $activities = DB::table('activities')->where('lang', $productsDetail->lang)->get();
+        $destinasi = DB::table('destinations')->where('lang', $productsDetail->lang)->get();
+        return view('admin.pages.products_add', compact('productsDetail', 'activities', 'destinasi'));
 
     }
 

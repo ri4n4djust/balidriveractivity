@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Session;
+
 if( !function_exists('cutText') )
 {
     function cutText($text, $length, $mode = 2)
@@ -21,6 +23,19 @@ if( !function_exists('cutText') )
         return substr($text, 0, $length);
     }
 }
+if( !function_exists('convertPrice') )
+{
+    function convertPrice($price, $toCurrency)
+    {
+        $rate = Session::get('currency_rate', 1);
+        // if ($fromCurrency === $toCurrency) {
+        //     return $price;
+        // }
+        
+        return round($price * $rate, 2);
+    }
+}
+
 function group_by($key, $data) {
     $result = array();
 

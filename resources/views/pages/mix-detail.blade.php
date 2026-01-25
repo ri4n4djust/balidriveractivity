@@ -1,3 +1,19 @@
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+    $ur = explode('/', $url);
+    $table = $ur[1];
+    if($table == 'mix-detail'){
+        $table = 'products';
+    }
+    $slug = $ur[2]; 
+?>
+@if(isset($mixDetail[0]))
+@php 
+    $mixDetail = DB::table('products')->where('slug', $slug)->get(); 
+    $lang = $mixDetail[0]->lang ;
+    App::setLocale($lang);
+@endphp
+@endif
 @extends('layouts.default')
 @section('meta')
     <title>Bali Best Activity - Bali Driver Activity</title>
@@ -136,88 +152,47 @@
 
         <!-- Itinerary -->
         <div class="tour-itinerary" data-aos="fade-up" data-aos-delay="300">
-          <h2>Day-by-Day Itinerary</h2>
+          <h2>Itinerary</h2>
           <div class="itinerary-timeline">
 
             <div class="itinerary-item">
-              <div class="day-number">Day 1</div>
+              <div class="day-number">1</div>
               <div class="day-content">
-                <h4>Arrival in Venice</h4>
-                <p>Welcome to the enchanting city of canals. Upon arrival, check into your waterfront hotel and enjoy a welcome dinner featuring fresh seafood and local Venetian specialties.</p>
+                <h4>Arrival</h4>
+                <p>{!! $mixDetail[0]->product_des !!}</p>
+                
                 <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Hotel Palazzo Vitturi</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Welcome Dinner</span>
+                  
+                    @if(isset($mixDetail[0]))
+                      @php $fasi = explode(";",$mixDetail[0]->dst_type) ; @endphp
+                        @foreach($destinasi as $desti)
+                          @if(in_array($desti->code, $fasi))
+                          <span class="accommodation"><i class="bi bi-building"></i>{{ $desti->name }}</span>
+                          @endif
+                        @endforeach
+                    @endif
+                    @if(isset($mixDetail[0]))
+                      @php $fasi = explode(";",$mixDetail[0]->parent_type) ; @endphp
+                        @foreach($activities as $desti)
+                          @if(in_array($desti->code, $fasi))
+                          <span class="accommodation"><i class="bi bi-building"></i>{{ $desti->name }}</span>
+                          @endif
+                        @endforeach
+                    @endif
+
                 </div>
               </div>
             </div>
 
             <div class="itinerary-item">
-              <div class="day-number">Day 2</div>
+              <div class="day-number">2</div>
               <div class="day-content">
-                <h4>Venice City Tour</h4>
-                <p>Explore St. Mark's Square, visit the magnificent Basilica, and take a gondola ride through the romantic canals. Afternoon visit to Murano Island to see traditional glassblowing demonstrations.</p>
+                <h4>Arrival</h4>
+                <p>{!! $mixDetail[0]->product_des !!}</p>
+                
                 <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Hotel Palazzo Vitturi</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast</span>
-                </div>
-              </div>
-            </div>
+                  
 
-            <div class="itinerary-item">
-              <div class="day-number">Day 3</div>
-              <div class="day-content">
-                <h4>Florence Discovery</h4>
-                <p>Travel to Florence, the cradle of Renaissance. Visit the Uffizi Gallery, admire Michelangelo's David, and climb to the top of the Duomo for breathtaking city views.</p>
-                <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Hotel Davanzati</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="itinerary-item">
-              <div class="day-number">Days 4-5</div>
-              <div class="day-content">
-                <h4>Rome Exploration</h4>
-                <p>Two full days in the Eternal City. Visit the Colosseum, Roman Forum, Vatican City with the Sistine Chapel, and enjoy an authentic cooking class with a local Roman family.</p>
-                <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Hotel Artemide</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast, Cooking Class</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="itinerary-item">
-              <div class="day-number">Days 6-8</div>
-              <div class="day-content">
-                <h4>Santorini Paradise</h4>
-                <p>Flight to Greece and arrival in Santorini. Three days to explore the iconic blue-domed churches, stunning sunsets in Oia, wine tasting, and relaxation on unique volcanic beaches.</p>
-                <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Canaves Oia Hotel</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast Daily</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="itinerary-item">
-              <div class="day-number">Days 9-11</div>
-              <div class="day-content">
-                <h4>Istanbul Adventure</h4>
-                <p>Fly to Istanbul for three incredible days exploring where Europe meets Asia. Visit Hagia Sophia, Blue Mosque, Grand Bazaar, and enjoy a Bosphorus cruise at sunset.</p>
-                <div class="day-details">
-                  <span class="accommodation"><i class="bi bi-building"></i> Four Seasons Sultanahmet</span>
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast, Farewell Dinner</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="itinerary-item">
-              <div class="day-number">Day 12</div>
-              <div class="day-content">
-                <h4>Departure</h4>
-                <p>Transfer to Istanbul Airport for your departure flight. Take home memories of an incredible Mediterranean adventure that will last a lifetime.</p>
-                <div class="day-details">
-                  <span class="meals"><i class="bi bi-cup-hot"></i> Breakfast</span>
                 </div>
               </div>
             </div>
@@ -231,34 +206,14 @@
             <div class="col-lg-6">
               <div class="included-section">
                 <h3><i class="bi bi-check-circle-fill"></i> What's Included</h3>
-                <ul class="inclusion-list included">
-                  <li><i class="bi bi-check"></i> Round-trip flights between destinations</li>
-                  <li><i class="bi bi-check"></i> 11 nights accommodation (4-star hotels)</li>
-                  <li><i class="bi bi-check"></i> Daily breakfast at all hotels</li>
-                  <li><i class="bi bi-check"></i> Professional English-speaking guides</li>
-                  <li><i class="bi bi-check"></i> All entrance fees to attractions</li>
-                  <li><i class="bi bi-check"></i> Private transportation</li>
-                  <li><i class="bi bi-check"></i> Welcome and farewell dinners</li>
-                  <li><i class="bi bi-check"></i> Gondola ride in Venice</li>
-                  <li><i class="bi bi-check"></i> Wine tasting in Santorini</li>
-                  <li><i class="bi bi-check"></i> Bosphorus cruise in Istanbul</li>
-                </ul>
+                <p>{!! $mixDetail[0]->product_included !!}</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="excluded-section">
                 <h3><i class="bi bi-x-circle-fill"></i> What's Not Included</h3>
-                <ul class="inclusion-list excluded">
-                  <li><i class="bi bi-x"></i> International flights to/from departure city</li>
-                  <li><i class="bi bi-x"></i> Lunch and dinner (except specified)</li>
-                  <li><i class="bi bi-x"></i> Personal expenses and shopping</li>
-                  <li><i class="bi bi-x"></i> Travel insurance (recommended)</li>
-                  <li><i class="bi bi-x"></i> Tips for guides and drivers</li>
-                  <li><i class="bi bi-x"></i> Optional activities and excursions</li>
-                  <li><i class="bi bi-x"></i> Alcoholic beverages (except wine tasting)</li>
-                  <li><i class="bi bi-x"></i> Visa fees if required</li>
-                  <li><i class="bi bi-x"></i> Single supplement for solo travelers</li>
-                </ul>
+                <p>{!! $mixDetail[0]->product_excluded !!}</p>
+                  
               </div>
             </div>
           </div>
@@ -272,6 +227,8 @@
               <div class="price-item">
                 <h3>Starting from</h3>
                 <div class="price-amount">$3,299</div>
+                {currency == 'USD' ?}
+                 {{$mixDetail[0]->price * session('exchange_rate', 1)}}
                 <p>per person (double occupancy)</p>
               </div>
             </div>

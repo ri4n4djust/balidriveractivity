@@ -31,13 +31,44 @@
               <input type="text" name="product_name" class="form-control" placeholder="product_name" value="{{ $productsDetail->product_name ?? '' }}">
           </div>
         </div>
-        <div class="form-group col-lg-6">
-          <label>Price</label>
-          <input type="number" name="price" class="form-control" placeholder="Price" value="{{ $productsDetail->price ?? '' }}">
+        <div class="row">
+          <div class="form-group col-lg-6">
+            <label>Price</label>
+            <input type="number" name="price" class="form-control" placeholder="Price" value="{{ $productsDetail->price ?? '' }}" required>
+          </div>
+          
+          <div class="form-group col-lg-6">
+              <label>Lang</label>
+              <select name="lang" class="form-control" style="background-color: #000; color: #fff;" required>
+
+                <option value="en" {{ (isset($productsDetail) && $productsDetail->lang === 'en') || !isset($productsDetail) ? 'selected' : '' }}>English</option>
+                <option value="id" {{ (isset($productsDetail) && $productsDetail->lang === 'id') || !isset($productsDetail) ? 'selected' : '' }}>Indonesia</option>
+              </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-lg-6">
+              <label>Meta Keyword</label>
+              <input class="form-control" id="meta_keyword" name="meta_keyword" value="{{ $productsDetail->meta_keyword ?? '' }}">
+          </div>
+          <div class="form-group col-lg-6">
+              <label>Meta Description</label>
+              <input class="form-control" id="meta_description" name="meta_description" value="{{ $productsDetail->meta_description ?? '' }}">
+          </div>
         </div>
         <div class="form-group">
             <label>Des</label>
             <textarea class="form-control" id="product_des" name="product_des" >{{ $productsDetail->product_des ?? '' }}</textarea>
+        </div>
+        <div class="row">
+          <div class="form-group col-lg-6">
+              <label>Included</label>
+              <textarea class="form-control" id="product_included" name="product_included" >{{ $productsDetail->product_included ?? '' }}</textarea>
+          </div>
+          <div class="form-group col-lg-6">
+              <label>Excluded</label>
+              <textarea class="form-control" id="product_excluded" name="product_excluded" >{{ $productsDetail->product_excluded ?? '' }}</textarea>
+          </div>
         </div>
         <div class="form-group">
             <label>Aktivity</label>
@@ -68,6 +99,37 @@
             </div>
         </div>
         <div class="form-group">
+            <label>Destination  </label>
+              <div class="row">
+
+                @if(isset($productsDetail))
+                  @php $fasi = explode(";",$productsDetail->dst_type) ; @endphp
+                    @foreach($destinasi as $desti)
+                    <div class="col-md-6">
+                      @if(in_array($desti->code, $fasi))
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" checked />
+                        @else
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" />
+                        </label>
+                      @endif
+                      {{$desti->name}} - {{$desti->lang}}
+                    </div>
+                    @endforeach
+                @else
+                    @foreach($destinasi as $desti)
+                    <div class="col-md-6">
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
+                      </label>
+                    </div>
+                    @endforeach
+                @endif
+               
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
             <div class="needsclick dropzone" id="document-dropzone"></div>
         </div>
         <button type="submit" class="btn btn-fill btn-primary">Simpan</button>
@@ -89,7 +151,9 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    CKEDITOR.replace('product_des', options);
+    // CKEDITOR.replace('product_des', options);
+    CKEDITOR.replace('product_included', options);
+    CKEDITOR.replace('product_excluded', options);
 
 
     var uploadedDocumentMap = {}

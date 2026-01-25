@@ -28,7 +28,7 @@ Route::post("invoice", [CheckoutController::class, 'create']);
 Route::post("insert-reservasi", [CheckoutController::class, 'createReservasi']);
 
 Route::post("get-rate", [App\Http\Controllers\bookingController::class , 'rate']);
-Route::get("get-exchange", [App\Http\Controllers\bookingController::class , 'exchange']);
+Route::get("/get-exchange/{mata}", [App\Http\Controllers\bookingController::class , 'exchange'])->name('api.currency.update');
 //============callback
 Route::post('/success-payment', [App\Http\Controllers\callbackController::class, 'suksesPayment']);
 Route::post('/create-payment', [App\Http\Controllers\callbackController::class, 'createPayment']);

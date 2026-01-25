@@ -15,8 +15,14 @@
           <li><a href="/tour_packages">{{ __('headmenu.tour_package') }}</a></li>
           <li><a href="/gallery">{{ __('headmenu.gallery') }}</a></li>
           <li><a href="/blog">Blog</a></li>
-          
           <li><a href="/contact">{{ __('headmenu.contact') }}</a></li>
+          <li class="dropdown">
+            <a href="#"><span>{{ session('currency', 'USD') }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{!! route('currency', ['currency'=>'USD']) !!}">USD</a></li>
+              <li><a href="{!! route('currency', ['currency'=>'IDR']) !!}">IDR</a></li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a href="#"><span>{{ strtoupper(Lang::locale()) }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>

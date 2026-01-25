@@ -40,8 +40,15 @@
               <input type="text" name="lang" class="form-control" placeholder="Lang" value="{{ $destinasiDetail->lang ?? '' }}">
           </div>
           <div class="form-group col-lg-4">
-              <label>Lang</label>
-              <input type="text" name="type" class="form-control" placeholder="Type" value="{{ $destinasiDetail->type ?? '' }}">
+              <label>Area</label>
+              <select name="type" class="form-control" style="background-color: #000; color: #fff;" required>
+              <option value="ubud" {{ $destinasiDetail->type === 'ubud' ? 'selected' : '' }}>Ubud Bali</option>
+              <option value="south" {{ $destinasiDetail->type === 'south' ? 'selected' : '' }}>South Bali</option>
+              <option value="north" {{ $destinasiDetail->type === 'north' ? 'selected' : '' }}>North Bali</option>
+              <option value="east" {{ $destinasiDetail->type === 'east' ? 'selected' : '' }}>East Bali</option>
+              <option value="kintamani" {{ $destinasiDetail->type === 'kintamani' ? 'selected' : '' }}>Kintamani Bali</option>
+              <option value="west" {{ $destinasiDetail->type === 'west' ? 'selected' : '' }}>West Bali</option>
+            </select>
           </div>
         </div>
         <div class="form-group">

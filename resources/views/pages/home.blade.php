@@ -66,7 +66,8 @@
                     @php $gmbr = explode(";",$prd->product_foto) ; @endphp
                     <img src="{{asset('assets/img/products/'.$gmbr[0] ) }}" alt="Serene Beach Retreat" class="img-fluid" loading="lazy">
                     <div class="tour-badge">Top Rated</div>
-                    <div class="tour-price">$ {{ $prd->price }} / Pax</div>
+                    <div class="tour-price">{{ session('currency', 'USD') }} {{ number_format(convertPrice($prd->price, session('currency', 'USD')), 0) }} / Pax</div>
+                    
                   </div>
                   <div class="tour-content">
                     <h4>{{ $prd->product_name }}</h4>
@@ -75,6 +76,9 @@
                       <span class="group-size"><i class="bi bi-people"></i> Max 6</span>
                     </div>
                     <p>{!! substr($prd->product_des, 0, 60) !!}</p>
+                    <!-- @php $convertedPrice = round($prd->price * session('currency_rate', 1), 2); @endphp -->
+                    
+                    <!-- <x-money amount="{{ $convertedPrice }}" currency="{{ session('currency', 'USD') }}" convert /> -->
                     <div class="tour-highlights">
 
                      

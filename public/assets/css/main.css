@@ -1654,8 +1654,8 @@ section,
   color: var(--contrast-color);
   padding: 8px 15px;
   border-radius: 6px;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
   backdrop-filter: blur(10px);
 }
 
@@ -4308,7 +4308,7 @@ section,
 
 @media (max-width: 768px) {
   .travel-tour-details .tour-itinerary .itinerary-item {
-    padding-left: 80px;
+    padding-left: 34px;
   }
 }
 
@@ -4330,8 +4330,8 @@ section,
 
 @media (max-width: 768px) {
   .travel-tour-details .tour-itinerary .itinerary-item .day-number {
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
     font-size: 0.8rem;
   }
 }

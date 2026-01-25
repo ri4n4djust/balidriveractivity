@@ -26,7 +26,10 @@
         <div class="row">
           <div class="form-group col-lg-6">
             <label>Lang</label>
-            <input type="text" name="lang" class="form-control" placeholder="Lang" value="{{ $tourDetail->lang ?? '' }}">
+            <select name="lang" class="form-control" style="background-color: #000; color: #fff;" required>
+              <option value="en" {{ $tourDetail->lang === 'en' ? 'selected' : '' }}>English</option>
+              <option value="id" {{ $tourDetail->lang === 'id' ? 'selected' : '' }}>Indonesia</option>
+            </select>
           </div>
           <div class="form-group col-lg-6">
               <label>Type</label>
@@ -40,7 +43,14 @@
           </div>
           <div class="form-group col-lg-6">
             <label>area</label>
-            <input type="text" name="area_tour" class="form-control" placeholder="area_tour" value="{{ $tourDetail->area_tour ?? '' }}">
+            <select name="area_tour" class="form-control" style="background-color: #000; color: #fff;" required>
+              <option value="1" {{ $tourDetail->area_tour === '1' ? 'selected' : '' }}>Ubud</option>
+              <option value="2" {{ $tourDetail->area_tour === '2' ? 'selected' : '' }}>South</option>
+              <option value="3" {{ $tourDetail->area_tour === '3' ? 'selected' : '' }}>North</option>
+              <option value="4" {{ $tourDetail->area_tour === '4' ? 'selected' : '' }}>East</option>
+              <option value="5" {{ $tourDetail->area_tour === '5' ? 'selected' : '' }}>Kintamani</option>
+              <option value="6" {{ $tourDetail->area_tour === '6' ? 'selected' : '' }}>West</option>
+            </select>
           </div>
         </div>
         <div class="form-group">
@@ -71,11 +81,11 @@
                   @php $fasi = explode(";",$tourDetail->destination) ; @endphp
                     @foreach($destinasi as $desti)
                     <div class="col-md-6">
-                      @if(in_array($desti->id, $fasi))
+                      @if(in_array($desti->code, $fasi))
                         <label class="checkbox-inline">
-                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" checked />
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" checked />
                         @else
-                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" />
+                          <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" />
                         </label>
                       @endif
                       {{$desti->name}} - {{$desti->lang}}
@@ -85,7 +95,7 @@
                     @foreach($destinasi as $desti)
                     <div class="col-md-6">
                       <label class="checkbox-inline">
-                        <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->id }}" />{{$desti->name}} - {{$desti->lang}}
+                        <input type="checkbox" id="destination" name="destination[]" value="{{ $desti->code }}" />{{$desti->name}} - {{$desti->lang}}
                       </label>
                     </div>
                     @endforeach

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Http;
 
 class LocalizationController extends Controller
 {
@@ -36,5 +37,17 @@ class LocalizationController extends Controller
             // echo $url ;
             return redirect()->to($url);
         }
+    }
+    public function currency(Request $request)
+    {
+        
+        $currency = $request->currency ;
+        Session::put('currency', $currency);
+        // Http::get(route('api.currency.update', ['mata' => $currency]));
+        $response = Http::get('https://v6.exchangerate-api.com/v6/bcb99ccd6a1020a3868d3632/latest/USD');
+        $posts = $response->json();
+        Session::put('currency_rate', $posts['conversion_rates'][$currency]);
+        // Session::put('curenncy_symbol', $posts['conversion_rates'][$currency]);
+        return redirect()->back();
     }
 }
