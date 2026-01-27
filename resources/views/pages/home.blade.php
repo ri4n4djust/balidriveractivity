@@ -1,8 +1,8 @@
 @extends('layouts.default')
 @section('meta')
-    <title>The Swand - Room Booking, Travel and Management Hospitality</title>
-    <meta content="we are company that acomodate room booking, tour travel and also property management" name="description">
-    <meta content="bali room booking, car rental bali, bali management property" name="keywords">
+    <title>Bali Driver Activity</title>
+    <meta name="description" content="Discover and book unique travel experiences in Bali with Hire Bali Driver. From cultural tours to adventure activities, find authentic local experiences at the best prices.">
+    <meta name="keywords" content="Bali tours, Indonesia travel, activities Bali, tour booking, travel experiences, adventure tours, cultural tours, Bali activities">
 @endsection
 
 @section('content')
