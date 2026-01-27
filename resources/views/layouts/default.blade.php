@@ -66,10 +66,10 @@
     <!-- End About Section -->
       <div class="popup-container" id="popupContainer">
           <a href="https://api.whatsapp.com/send?phone=62818688114&text=Hello&source=&data=" class="whatsApp" target="_blank">
-          <img src="{{asset('assets/img/whatsapp.png')}}" />
+          <img src="{{asset('assets/img/whatsapp.png')}}" alt="WhatsApp" />
           </a>
           <div class="popup-content" id="popupContent">
-              <img src="{{asset('assets/img/wa.png')}}" /><br />
+              <img src="{{asset('assets/img/wa.png')}}" alt="Scan Me" /><br />
               Scan Me
           </div>
       </div>
