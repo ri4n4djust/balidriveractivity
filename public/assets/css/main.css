@@ -4302,8 +4302,8 @@ section,
 
 .travel-tour-details .tour-itinerary .itinerary-item {
   position: relative;
-  padding-left: 120px;
-  margin-bottom: 40px;
+  padding-left: 50px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {
@@ -4316,8 +4316,8 @@ section,
   position: absolute;
   left: 0;
   top: 0;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   background: var(--accent-color);
   color: var(--contrast-color);
   border-radius: 50%;

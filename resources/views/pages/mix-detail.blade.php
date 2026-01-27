@@ -155,48 +155,21 @@
           <h2>Itinerary</h2>
           <div class="itinerary-timeline">
 
-            <div class="itinerary-item">
-              <div class="day-number">1</div>
-              <div class="day-content">
-                <h4>Arrival</h4>
-                <p>{!! $mixDetail[0]->product_des !!}</p>
-                
-                <div class="day-details">
-                  
-                    @if(isset($mixDetail[0]))
-                      @php $fasi = explode(";",$mixDetail[0]->dst_type) ; @endphp
-                        @foreach($destinasi as $desti)
-                          @if(in_array($desti->code, $fasi))
-                          <span class="accommodation"><i class="bi bi-building"></i>{{ $desti->name }}</span>
-                          @endif
-                        @endforeach
-                    @endif
-                    @if(isset($mixDetail[0]))
-                      @php $fasi = explode(";",$mixDetail[0]->parent_type) ; @endphp
-                        @foreach($activities as $desti)
-                          @if(in_array($desti->code, $fasi))
-                          <span class="accommodation"><i class="bi bi-building"></i>{{ $desti->name }}</span>
-                          @endif
-                        @endforeach
-                    @endif
-
+          @php $itineraries = explode(";",$mixDetail[0]->itinerary); @endphp
+          @foreach($itineraries as $key => $itinerary)
+            @if(!empty(trim($itinerary)))
+              <div class="itinerary-item">
+                <div class="day-number">{{ $key + 1 }}</div>
+                <div class="day-content">
+                  <p>{!! $itinerary !!}</p>
+                  <div class="day-details">
+                    
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="itinerary-item">
-              <div class="day-number">2</div>
-              <div class="day-content">
-                <h4>Arrival</h4>
-                <p>{!! $mixDetail[0]->product_des !!}</p>
-                
-                <div class="day-details">
-                  
-
-                </div>
-              </div>
-            </div>
-
+            @endif
+          @endforeach
+            
           </div>
         </div>
 

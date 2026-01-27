@@ -123,7 +123,7 @@ class bookingController extends Controller
         $paket = Package::where('lang', $defaultLocale)->take(3)->get();
         $artikel = Artikel::where('lang', $defaultLocale)->get();
         $galeri = Gallery::where('lang', $defaultLocale)->take(3)->get();
-        $product = DB::table('products')->orderBy('id', 'desc')->take(4)->get();
+        $product = DB::table('products')->where('lang', $defaultLocale)->orderBy('id', 'desc')->take(4)->get();
         $activities = DB::table('activities')->where('lang', $defaultLocale)->get();
         // var_dump($kamar[0]->foto);
 

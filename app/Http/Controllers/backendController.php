@@ -466,6 +466,7 @@ class backendController extends Controller
                 $data['destination'] = $data['destination'] ?? [];
                 $data['product_included'] = $data['product_included'] ?? [];
                 $data['product_excluded'] = $data['product_excluded'] ?? [];
+                $data['itinerary'] = $data['itinerary'] ?? [];
 
                 $gmbr = "";
                 $foto = $data['document'];
@@ -478,6 +479,7 @@ class backendController extends Controller
                     'id' => $data['id'],
                     'product_code' => $data['product_code'],
                     'product_des' => $data['product_des'],
+                    'itinerary' => implode(';', $data['itinerary']),
                     'product_included' => $data['product_included'],
                     'product_excluded' => $data['product_excluded'],
                     'product_name' => $data['product_name'],

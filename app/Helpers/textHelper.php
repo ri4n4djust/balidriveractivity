@@ -31,8 +31,12 @@ if( !function_exists('convertPrice') )
         // if ($fromCurrency === $toCurrency) {
         //     return $price;
         // }
-        
-        return round($price * $rate, 2);
+        if ($toCurrency === 'USD') {
+            $rate = 1 / $rate;
+            $harga = round($price * $rate, 2);
+            return $harga;
+        }
+        return round($price * $rate, -3);
     }
 }
 

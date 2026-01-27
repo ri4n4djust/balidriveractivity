@@ -47,7 +47,7 @@
 
           @foreach ($destination as $dst)
             <div class="col-lg-4 col-md-6 destination-item isotope-item filter-{{ strtolower($dst->type) }}">
-              <a href="destination-details.html" class="destination-tile">
+              <a href="{{ route('destinations.detail', ['slug' => $dst->slug]) }}" class="destination-tile">
                 <div class="tile-image">
                   @php $gmbr = explode(";",$dst->foto) ; @endphp
                   <img src="{{asset('assets/img/destinasi/'.$gmbr[0] ) }}" alt="{{ $dst->name }}" class="img-fluid" loading="lazy">

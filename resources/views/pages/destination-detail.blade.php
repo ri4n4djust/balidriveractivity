@@ -20,27 +20,26 @@
 @endphp
 @extends('layouts.default')
 @section('meta')
-    <title>{{ $destinationDetail[0]->name }} -The Swand</title>
+    <title>{{ $destinationDetail[0]->name }}</title>
     <meta content="{!! $desk[0] !!}" name="description">
     <meta content="{{ $destinationDetail[0]->slug }}" name="keywords">
 @endsection
 @section('content')
 
-    
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Destinations Detail</h2>
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+      <div class="container position-relative">
+        <h1>Tour Details</h1>
+        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <nav class="breadcrumbs">
           <ol>
-            <li><a href="/">Home</a></li>
-            <li>{{ $destinationDetail[0]->name }}</li>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Tour Details</li>
           </ol>
-        </div>
-
+        </nav>
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div><!-- End Page Title -->
+    
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">

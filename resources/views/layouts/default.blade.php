@@ -48,7 +48,7 @@
     @include('includes.headmenudetail', ['banner' => '2.webp' ?? null, 'judul' => 'About Us' ?? null])
   @elseif (Route::is('service'))
     @include('includes.headmenudetail', ['banner' => '3.webp' ?? null, 'judul' => 'Our Services' ?? null])
-  @elseif (Route::is('destinations') || Route::is('destination-detail'))
+  @elseif (Route::is('destinations') || Route::is('destinations.detail'))
     @include('includes.headmenudetail', ['banner' => '4.webp' ?? null, 'judul' => 'Bali Destinations' ?? null])
   @elseif (Route::is('activities') || Route::is('activity-detail'))
     @include('includes.headmenudetail', ['banner' => 'ubud.webp' ?? null, 'judul' => 'Bali Activities' ?? null])

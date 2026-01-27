@@ -60,6 +60,63 @@
             <label>Des</label>
             <textarea class="form-control" id="product_des" name="product_des" >{{ $productsDetail->product_des ?? '' }}</textarea>
         </div>
+        <div class="form-group">
+          <label>Itinerary</label>
+          <div id="itinerary-container">
+            @if(isset($productsDetail) && !empty($productsDetail->itinerary))
+            @php $itineraryItems = explode(";", $productsDetail->itinerary); @endphp
+            @foreach($itineraryItems as $item)
+              <div class="itinerary-item row mb-2">
+                <div class="col-lg-11">
+                  <textarea class="form-control" name="itinerary[]" placeholder="Day...">{{ $item }}</textarea>
+                </div>
+                <div class="col-lg-1">
+                  <button type="button" class="btn btn-sm btn-danger remove-itinerary">-</button>
+                </div>
+              </div>
+            @endforeach
+          @endif
+            @if(!isset($productsDetail) || empty($productsDetail->itinerary))
+              <div class="itinerary-item row mb-2">
+                <div class="col-lg-11">
+                  <textarea class="form-control" name="itinerary[]" placeholder="Day..."></textarea>
+                </div>
+                <div class="col-lg-1">
+                  <button type="button" class="btn btn-sm btn-danger remove-itinerary">-</button>
+                </div>
+              </div>
+            @endif
+          </div>
+          <button type="button" class="btn btn-sm btn-success" id="add-itinerary">+ Add Itinerary</button>
+        </div>
+        
+        @push('js')
+        <script>
+          
+        $(document).ready(function() {
+          $('#add-itinerary').click(function() {
+            var newItem = '<div class="itinerary-item row mb-2"><div class="col-lg-11"><textarea class="form-control" name="itinerary[]" placeholder="Day..."></textarea></div><div class="col-lg-1"><button type="button" class="btn btn-sm btn-danger remove-itinerary">-</button></div></div>';
+            $('#itinerary-container').append(newItem);
+            updateRemoveButtons();
+          });
+          
+          $(document).on('click', '.remove-itinerary', function(e) {
+            e.preventDefault();
+            $(this).closest('.itinerary-item').remove();
+            updateRemoveButtons();
+          });
+          
+          function updateRemoveButtons() {
+            if ($('.itinerary-item').length > 1) {
+              $('.remove-itinerary').show();
+            } else {
+              $('.remove-itinerary').hide();
+            }
+          }
+          updateRemoveButtons();
+        });
+        </script>
+        @endpush
         <div class="row">
           <div class="form-group col-lg-6">
               <label>Included</label>
@@ -151,7 +208,7 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    // CKEDITOR.replace('product_des', options);
+    CKEDITOR.replace('product_des', options);
     CKEDITOR.replace('product_included', options);
     CKEDITOR.replace('product_excluded', options);
 
