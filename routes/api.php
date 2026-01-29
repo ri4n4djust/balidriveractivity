@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\GoogleAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,13 @@ use App\Http\Controllers\Checkout\CheckoutController;
 |
 */
 
+// Route to handle the callback from Google
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])->name('auth.google.callback');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+    
 });
 
 Route::get("health", function() {

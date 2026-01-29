@@ -29,12 +29,12 @@
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
       <div class="container position-relative">
-        <h1>Tour Details</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <h1>{{ $destinationDetail[0]->name }}</h1>
+        <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Tour Details</li>
+            <li><a href="/">Home</a></li>
+            <li class="current">Destination Details</li>
           </ol>
         </nav>
       </div>
@@ -50,9 +50,6 @@
             <!-- <p>Tour Detail </p> -->
             <!-- </div> -->
             <div class="row">
-                <div class="col-lg-12 position-relative mt-0" data-aos="fade-up" data-aos-delay="150">
-                    <h4>{{ $destinationDetail[0]->name }}</h4>
-                </div>
                 <div class="col-lg-6 position-relative mt-0" data-aos="fade-up" data-aos-delay="150">
                     <p>{!! $desk[0] !!}</p>
                 </div>

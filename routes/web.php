@@ -6,7 +6,7 @@ use App\Models\Transport;
 use App\Models\TourPackage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-
+use App\Http\Controllers\GoogleAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,8 @@ use Spatie\Sitemap\Tags\Url;
 //     return view('pages.booking');
 // });https://d3d2-120-188-76-241.ngrok-free.app/
 // Route::get('/booking', [App\Http\Controllers\bookingController::class , 'index']);
+Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect'])->name('auth.google.redirect');
+
 
 
 if (file_exists(app_path('Http/Controllers/LocalizationController.php')))
@@ -123,6 +125,9 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
+    
+
+
     // your routes
     Route::get('properti', ['as' => 'pages.properti', 'uses' => 'App\Http\Controllers\PageController@properti']);
     Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);

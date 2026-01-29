@@ -88,7 +88,7 @@
     Dropzone.options.documentDropzone = {
       url: '{{ route('destinasi.storeMedia') }}',
       maxFilesize: 10, // MB
-      acceptedFiles: '.png, .jpg',
+      acceptedFiles: '.png, .jpg, .jpeg, .gif, .webp',
       addRemoveLinks: true,
       headers: {
         'X-CSRF-TOKEN': "{{ csrf_token() }}"
