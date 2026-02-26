@@ -9,7 +9,7 @@
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
       <div class="container position-relative">
-        <h1>Tours</h1>
+        <h1>Find Your Perfect Tour</h1>
         <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
         <nav class="breadcrumbs">
           <ol>
@@ -25,15 +25,15 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-8 mx-auto text-center mb-5">
             <h2>Find Your Perfect Tour</h2>
             <p>Discover unforgettable travel experiences with our curated collection of tours. Explore by destination, travel style, or date to find the adventure that's perfect for you.</p>
           </div>
-        </div>
+        </div> -->
 
         <!-- Tour Filters -->
-        <div class="row mb-5" data-aos="fade-up" data-aos-delay="200">
+        <!-- <div class="row mb-5" data-aos="fade-up" data-aos-delay="200">
           <div class="col-12">
             <div class="tour-filters">
               <div class="row">
@@ -66,19 +66,10 @@
                     <option value="15+">15+ Days</option>
                   </select>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6 mb-3">
-                  <select class="form-select">
-                    <option value="">Price Range</option>
-                    <option value="0-500">$0 - $500</option>
-                    <option value="500-1000">$500 - $1,000</option>
-                    <option value="1000-2000">$1,000 - $2,000</option>
-                    <option value="2000+">$2,000+</option>
-                  </select>
-                </div> -->
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Tour Categories -->
         <div class="row mb-5" data-aos="fade-up" data-aos-delay="400">

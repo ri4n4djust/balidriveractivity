@@ -70,12 +70,12 @@
                     
                   </div>
                   <div class="tour-content">
-                    <h4>{{ $prd->product_name }}</h4>
+                    <h5>{{ $prd->product_name }}</h5>
                     <div class="tour-meta">
                       <span class="duration"><i class="bi bi-clock"></i> 8 Days</span>
                       <span class="group-size"><i class="bi bi-people"></i> Max 6</span>
                     </div>
-                    <p>{!! substr($prd->product_des, 0, 60) !!}</p>
+                    
                     <!-- @php $convertedPrice = round($prd->price * session('currency_rate', 1), 2); @endphp -->
                     
                     <!-- <x-money amount="{{ $convertedPrice }}" currency="{{ session('currency', 'USD') }}" convert /> -->

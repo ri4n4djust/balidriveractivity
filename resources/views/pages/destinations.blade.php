@@ -25,12 +25,12 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2>Uncover Captivating Travel Experiences</h2>
             <p class="mb-5">From the bustling energy of cosmopolitan cities to the serene embrace of untouched wilderness, embark on incredible journeys to the planet's most enchanting destinations. We're here to help you craft memories that will last a lifetime.</p>
           </div>
-        </div>
+        </div> -->
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <ul class="destination-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
