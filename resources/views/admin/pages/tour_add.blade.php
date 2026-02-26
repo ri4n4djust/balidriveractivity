@@ -165,7 +165,7 @@
     Dropzone.options.documentDropzone = {
       url: '{{ route('tour.storeMedia') }}',
       maxFilesize: 10, // MB
-      acceptedFiles: '.png, .jpg',
+      acceptedFiles: '.png, .jpg, .webp, .jpeg',
       addRemoveLinks: true,
       headers: {
         'X-CSRF-TOKEN': "{{ csrf_token() }}"

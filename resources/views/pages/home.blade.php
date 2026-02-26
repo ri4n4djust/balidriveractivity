@@ -91,7 +91,7 @@
                     </div>
                     <div class="tour-action">
                       <!-- <a href="booking.html" class="btn-book">Book Now</a> -->
-                      <a href="/mix-detail/{{ $prd->slug }}" class="btn btn-outline-primary">View Tour</a>
+                      <a href="/mix-detail/{{ $prd->slug }}" class="btn-book">View Tour</a>
                       <div class="tour-rating">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
@@ -337,13 +337,13 @@
     </section><!-- /Featured Tours Section -->
 
     <!-- Testimonials Home Section -->
-    <section id="testimonials-home" class="testimonials-home section">
+    <!-- <section id="testimonials-home" class="testimonials-home section">
 
-      <!-- Section Title -->
+      
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
         <div><span>What Our Customers</span> <span class="description-title">Are Saying</span></div>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -386,7 +386,7 @@
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -399,7 +399,7 @@
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -412,7 +412,7 @@
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -425,7 +425,7 @@
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -438,7 +438,7 @@
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
           </div>
           <div class="swiper-pagination"></div>
@@ -446,7 +446,8 @@
 
       </div>
 
-    </section><!-- /Testimonials Home Section -->
+    </section> -->
+    <!-- /Testimonials Home Section -->
 
     
    
