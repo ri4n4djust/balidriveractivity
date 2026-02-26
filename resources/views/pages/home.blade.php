@@ -90,7 +90,8 @@
                       @endforeach
                     </div>
                     <div class="tour-action">
-                      <a href="booking.html" class="btn-book">Book Now</a>
+                      <!-- <a href="booking.html" class="btn-book">Book Now</a> -->
+                      <a href="/mix-detail/{{ $prd->slug }}" class="btn btn-outline-primary">View Tour</a>
                       <div class="tour-rating">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
